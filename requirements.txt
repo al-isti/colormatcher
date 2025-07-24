@@ -1,3 +1,4 @@
 streamlit
 pandas
 colormath
+numpy<1.24
