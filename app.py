@@ -2,10 +2,7 @@ import streamlit as st
 import pandas as pd
 from basic_colormath import hex_to_lab, get_delta_e_hex
 
-def hex_to_rgb(hex_code):
-    hex_code = hex_code.strip().lstrip('#')
-    return tuple(int(hex_code[i:i+2], 16) for i in (0, 2, 4))
-
+# Match input to closest color
 def find_closest_color(input_hex, df):
     best_row = None
     best_delta = float('inf')
@@ -19,7 +16,7 @@ def find_closest_color(input_hex, df):
     return best_row, best_delta
 
 st.title("🎨 HEX Color Matcher")
-st.markdown("Upload your `Name,Hex` CSV and find the closest match by Delta E (CIE2000).")
+st.markdown("Upload your `Name,Hex` CSV and find the closest match (Delta E CIE2000).")
 
 uploaded = st.file_uploader("Upload CSV", type=["csv"])
 if uploaded:
